@@ -8,15 +8,18 @@
         function greet(){
             alert(txtName1.value+ txtName2.value);
         }
+        function calc(){
+            let a = Number (txtName1.value)
+            let b = Number (txtName2.value)
+            alert(a+b);
+        }
     </script>
 </head>
 <body>
     <input type="text" id="txtName1">
     <input type="text" id="txtName2">
-    <button onclick="greet()" style="background-color: yellow;"> Click</button>
-    <script>
-
-    </script>
-    
+    <button onclick="calc()" style="background-color: yellow;"> Submit</button>
+   <hr>
+   
 </body>
 </html>
