@@ -11,7 +11,8 @@
         function calc(){
             let a = Number (txtName1.value)
             let b = Number (txtName2.value)
-            alert(a+b);
+            //alert(a+b);
+            dvResult.innerHTML = a+b;
         }
     </script>
 </head>
@@ -20,6 +21,9 @@
     <input type="text" id="txtName2">
     <button onclick="calc()" style="background-color: yellow;"> Submit</button>
    <hr>
+   <div id="dvResult">
+
+   </div>
    
 </body>
 </html>
