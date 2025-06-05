@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const handleSubmit=()=>{
+            let name=document.getElementById("txtName").value;
+            let age=document.getElementById("txtAge").value;
+            let str = `Here is the information-
+            <h2>${name}-${age}</h2>
+            ` 
+
+           dvResult.innerHTML = str;
+
+        };
+    </script>
+</head>
+<body>
+    <p> <input type="text" id="txtName"/></p>
+    <p> <input type="number" id="txtAge"/></p>
+
+    <button onclick="handleSubmit()">Submit</button>
+    <hr />
+    <div id="dvResult"></div>
+</body>
+</html>

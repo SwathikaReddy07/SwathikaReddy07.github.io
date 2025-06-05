@@ -25,11 +25,10 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            const result = `
-                <p>Name: ${name}</p>
-                <p>Email: ${email}</p>
-                <p>Password: ${password}</p>
-            `;
+             let result = "Name: " + name + "<br>";
+            result += "Email: " + email + "<br>";
+            result += "Password: " + password + "<br>";
+
             document.getElementById('result').innerHTML = result;
         }
     </script>
