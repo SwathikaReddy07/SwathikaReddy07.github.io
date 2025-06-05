@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>FORMS</h1>
+
+    <h2>Enter Your Details</h1>
+
+    <div class="form-box">
+        <input type="text" id="name" placeholder="Enter your name"><br>
+        <input type="email" id="email" placeholder="Enter your email"><br>
+        <input type="password" id="password" placeholder="Enter your password"><br>
+        <button onclick="printDetails()">Submit</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        function printDetails() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const result = `
+                <p>Name: ${name}</p>
+                <p>Email: ${email}</p>
+                <p>Password: ${password}</p>
+            `;
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>
