@@ -1,42 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruit List with Array</title>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit List</title>
     <script>
-        let fruits = [];
+      let fruits = [];
 
-        function add() {
-            const input = document.getElementById("a");
-            const fruit = input.value.trim();
-
-            if (fruit !== "") {
-                fruits.push(fruit); 
-                input.value = ""; 
-                displayFruits();
-            }
-        }
-
-        function displayFruits() {
-            const list = document.getElementById("fruitList");
-            list.innerHTML = "";
-
-            
-            fruits.forEach(function(fruit) {
-                const li = document.createElement("li");
-                li.textContent = fruit;
-                list.appendChild(li);
-            });
-        }
+      function add() {
+        const input = document.getElementById("txt1").value;
+        fruits.push(input);
+        dispFruits()
+      }
+    
+      function dispFruits() {
+        let listHTML = fruits.map((fruit)=>`<li>${fruit}<button onclick=del('${fruit}')>Delete</button></li>`).join("");
+        document.getElementById("fruitList").innerHTML = listHTML;
+      }
+      
+       function del(value) {
+        fruits = fruits.filter((e) => e != value);
+        dispFruits()
+      }
+       
+      function search(){
+        fruits = fruits.filter((e) => e == value);
+        dispFruits()
+      }
     </script>
-</head>
-<body>
-    <h1>Fruit List</h1>
-    <input type="text" id="a" placeholder="Enter the fruit name">
-    <button onclick="add()">ADD</button>
-
-    <ul id="fruitList"></ul>
-</body>
+  </head>
+  <body>
+    <div>
+      <h1>Fruit List</h1>
+      <input type="text" id="txt1" />
+      <button onclick="add()">Add</button>
+      <button onclick="search()">Search </button>
+      <ul id="fruitList"></ul>
+    </div>
+  </body>
 </html>
