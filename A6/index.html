@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit List with Array</title>
+
+    <script>
+        let fruits = [];
+
+        function add() {
+            const input = document.getElementById("a");
+            const fruit = input.value.trim();
+
+            if (fruit !== "") {
+                fruits.push(fruit); 
+                input.value = ""; 
+                displayFruits();
+            }
+        }
+
+        function displayFruits() {
+            const list = document.getElementById("fruitList");
+            list.innerHTML = "";
+
+            
+            fruits.forEach(function(fruit) {
+                const li = document.createElement("li");
+                li.textContent = fruit;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Fruit List</h1>
+    <input type="text" id="a" placeholder="Enter the fruit name">
+    <button onclick="add()">ADD</button>
+
+    <ul id="fruitList"></ul>
+</body>
+</html>
