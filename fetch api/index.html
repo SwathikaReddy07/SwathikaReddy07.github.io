@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Search</title>
+  <style>
+    #searchBox {
+      margin-bottom: 20px;
+    }
+    #searchBox input {
+      padding: 5px;
+    }
+    #searchBox button {
+      padding: 6px 10px;
+    }
+    .user-card {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+    <h1>User Search:</h1>
+  <div id="searchBox">
+    <input type="text" id="txtSearch" placeholder="Enter name..." />
+    <button onclick="searchUser()">Search</button>
+  </div>
+
+  <div id="dvUsers"></div>
+
+  <script>
+    const url = "https://jsonplaceholder.typicode.com/users";
+    let allUsers = [];
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((users) => {
+        allUsers = users;
+      });
+
+    function searchUser() {
+      const nameInput = document.getElementById("txtSearch").value.trim().toLowerCase();
+      const dvUsers = document.getElementById("dvUsers");
+      const user = allUsers.find((u) => u.name.toLowerCase() === nameInput);
+
+      if (user) {
+        dvUsers.innerHTML = `
+          <div class="user-card">
+            <strong>Name:</strong> ${user.name} <br>
+            <strong>Email:</strong> ${user.email} <br>
+            <strong>Phone:</strong> ${user.phone} <br>
+            <strong>Company:</strong> ${user.company.name}
+          </div>
+        `;
+      } else {
+        dvUsers.innerHTML = `<div class="user-card">Invalid user</div>`;
+      }
+    }
+  </script>
+</body>
+</html>
